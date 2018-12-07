@@ -1,97 +1,97 @@
-# Microsoft Edge and Chromium Open Source: Our Intent
-Authors: Microsoft Edge Team  
-Last Updated: 2018-12-06
+# Microsoft EdgeとChromiumオープンソース：私たちの意向
+著者：Microsoft Edge Team
+最終更新日：2018-12-06
 
-## Why this document 
-For the past few years, Microsoft has meaningfully increased participation in the open source software (OSS) community, becoming one of the world’s largest supporters of OSS projects. We are starting down a path to adopt Chromium open source in the development of Microsoft Edge on the desktop, becoming a larger contributor and user of its open source so that we can create better web compatibility for our customers and less-fragmentation of the web for all web developers. 
+## なぜこの文書
+過去数年間、Microsoftはオープンソースソフトウェア（OSS）コミュニティへの参加を大幅に増やし、OSSプロジェクトの世界最大の支持者の一員となっています。私たちMicrosoft Edgeチームは、デスクトップのMicrosoft Edgeの開発にChromiumオープンソースを採用する道を歩み始めており、Chromiumのより大きな貢献者とユーザーになりつつあります。その結果、お客様にはより良いウェブ互換性を提供し、すべてのウェブ開発者にウェブの断片化を減らすことができます。 
 
-**This document exists to clarify our thinking on how that work will proceed**: we want to explain our plans and intentions related to Microsoft Edge and the Chromium open-source project. The audiences we think will find this document most relevant and useful are (a) the people working on Chromium as approvers/maintainers and leading that project, (b) the companies and engineers who build other browsers and will be interested in the contributions we plan to make, and (c) the broader community of web developers, corporate-IT managers and partners we work with on Windows and Microsoft Edge. And of course, we and all those audiences care primarily about the end-user, who is ultimately the audience this work is intended to benefit.
+**この文書は、どのようにその作業が進行するかについての私たちの考えを明確にするために存在します**：Microsoft EdgeとChromiumオープンソースプロジェクトに関する私たちMicrosoft Edgeチームの計画と意図について説明したいと思います。この文書が最も関連しかつ有用であると私たちが考える読者は、(a) Chromiumを承認者(approvers)/メンテナーとしてChromiumで働いていて、プロジェクトをリードする人々、(b) 他のブラウザーを作成する、および私たちがなそうと計画している貢献に興味を持つ企業およびエンジニア、(c) WindowsとMicrosoft Edgeで共に働くウェブ開発者、企業ITマネージャー、パートナーの幅広いコミュニティーです。もちろん、私たちとそのすべての読者は、第一にエンドユーザーを大事に思います。エンドユーザーが最終的にこの作業により恩恵を受けようとしている読者です。
 
 ### TL;DR
-Working with open source is not new for Microsoft Edge.  Our new mobile browser has been based on open source from its beginnings over a year ago. We’ve also used open source for various features of Microsoft Edge on the desktop (e.g. ANGLE, Web Audio, Brotli) and we’ve begun making contributions to the Chromium project to help move browsing forward on new ARM-based Windows devices. In that context, we have been thinking through plans to adopt the Chromium open source project in the development of Microsoft Edge on the desktop to create better web-compatibility for our customers and less-fragmentation of the web for all its developers, and we’re now ready to move forward.  
+オープンソースを使って作業することは、Microsoft Edgeにとっては新しいことではありません。私たちの新しいモバイルブラウザーは、1年以上前からオープンソースを基にしています。私たちはまた、デスクトップのMicrosoft Edgeのさまざまな機能（ANGLE、Web Audio、Brotliなど）にもオープンソースを使用しており、新しいARMベースのWindowsデバイスのブラウジングを促進するためにChromiumプロジェクトに貢献し始めました。そのような状況で、私たちは、お客様のウェブ互換性を向上させ、すべての開発者にとってウェブの断片化を少なくするために、デスクトップのMicrosoft Edgeの開発にChromiumオープンソースプロジェクトを採用する計画を考えてきました。今、前進する準備ができています。  
 
-As part of this, we hope and intend to become a significant contributor to Chromium, in a way that can make not just Microsoft Edge—but other browsers as well—better on both PCs and other devices.  We’ve written down our “OSS Principles for Microsoft Edge” below and “What Happens Next” to clearly outline our approach to contributions.
+その一環として、Microsoft Edgeだけでなく他のブラウザーもPCと他のデバイスの両方で優れたものできる方法で、Chromiumの重要な貢献者になることを願っており、そうするつもりです。私たちは、貢献へのアプローチを明確にするために、「Microsoft EdgeのOSS原則」と「次に起こること」を書き留めました。
 
-Our plan is to engage in a way that embraces the well-established open source model that’s been working effectively for years:  meaningful and positive contributions which align with long-standing thoughtfully-designed architecture, collaborative engineering, and keeping in mind that we, together as a community, seek the best outcome for all people who use the web across many devices.
+私たちの計画は、長い間効果的に働いてきた十分に確立されたオープンソースモデルを取り入れる方法で参加することです：長年の思慮深く設計されたアーキテクチャや、協調的なエンジニアリングと協調して、そしてコミュニティとして共に、多くのデバイスを横断してウェブを使用するすべての人々にとって最良の結果を追求していくことを忘れずに、有意義でかつ積極的な貢献をしていきます。
 
-## Microsoft and The Web Today 
-Our *intent* is profoundly informed by our context. Historically, Microsoft has focused on three primary constituencies: end-users, developers, and enterprises/organizations. These audiences have informed the investments we have made in Internet Explorer in the past, and now inform the investments we make in Microsoft Edge. As we have listened to these customers over the last few years, a consistent theme they echo is the increased complexity of their environments, and a desire for consistency, simplicity, reliability, compatibility. 
+## Microsoftと今日のウェブ
+私たちの *意図* は、私たちの状況によって心から伝えます。歴史的に、Microsoftは、エンドユーザー、デベロッパー（開発者）、そしてエンタープライズ（企業）/組織の3つの主要な構成要素に焦点を当ててきました。これらの読者は過去にInternet Explorerで行った投資に情報を提供しており、Microsoft Edgeでの投資をお知らせします。ここ数年の間にこれらの顧客に耳を傾けながら、顧客は一貫したテーマを繰り返してきました。顧客の環境の複雑さが増し、一貫性、簡潔性、信頼性、互換性が求められているのです。 
 
-We have effectively partnered with Google and other browser vendors over the years, first in the W3C and now even more closely through the WHATWG, to create common standards for the web platform to reduce this complexity and to improve the overall web experience. While browser vendors across the industry have made significant progress in aligning to these common standards, the underlying implementations and differing release schedules have created difficulties for our developers to fully benefit from the promises of the open web.
+私たちは、最初にW3Cで、現在はWHATWGを通じてより密接に、この複雑さを軽減し、全体的なウェブエクスペリエンスを向上させるためにウェブプラットフォームの共通の標準を作成することで、長年にわたってGoogleや他のブラウザベンダーと効果的に提携してきました。業界を横断してブラウザベンダーは、これらの共通の標準に沿って大幅な進歩を遂げている一方で、基本的な実装やリリーススケジュールが異なることで、私たちの開発者に対するオープンウェブの誓約由来の十分な利益を享受することが困難になっています。
 
-We see an opportunity now to move forward in a deeper way on a common compatible web platform that will serve Microsoft’s customers well and will provide mutual benefit for the larger web community while maintaining the marketplace benefits of competitive diversity in the browser ecosystem. Consider the following opportunities as we view them across our customer segments:
+ブラウザーエコシステムにおける競争力のあるダイバーシティー（多様性）の市場利益を維持しつつ、Microsoftの顧客に十分に役立ち、かつより広範なウェブコミュニティに相互利益をもたらすような、共通の互換性のあるウェブプラットフォーム上でより深く前進する進んでいく機会があると私たちは見ています。当社が顧客セグメント全体で見ている次のような機会を考えてみましょう：
 
-* *End-users* - Although Microsoft Edge has very high web compatibility for both standards-based HTML and for capabilities added by highly-used browsers like Chrome, our unique web-platform codebase still faces occasional compatibility problems as web developers focus less on HTML standards and rationally focus on widely used platforms like Chrome to develop and validate experiences for their customers. While we work hard to make updates and fix these issues continuously, our implementation of Microsoft Edge as a component that ships solely on the same schedule as the full Windows operating system has slowed our ability to update, causing platform fragmentation and exposing compatibility gaps. We think greater use of open source software (OSS) can improve this experience for our end-users. 
+* *エンドユーザー* - Microsoft Edgeは、標準ベースのHTMLと、Chromeのような非常によく使用されるブラウザーによって追加された機能の両方に対して非常に高いウェブ互換性を備えていますが、顧客の経験を開発して検証するために、ウェブ開発者がHTML標準にあまりフォーカスせず、Chromeのような広く使われているプラットフォームに合理的にフォーカスを当るため、ユニークなウェブプラットフォームのコードベースは今もなお互換性の問題に直面しています。これらの問題を継続的にアップデートし、修正するための努力をしていますが、完全なWindowsオペレーティングシステムと同じスケジュールでのみ出荷されるコンポーネントとしてのMicrosoft Edgeの実装は、私たちの更新能力を低下させ、プラットフォームの断片化や互換性の欠如を招いていました。私たちは、オープンソースソフトウェア（OSS）をより多く使用することで、エンドユーザーのこのような経験を向上させることができると考えています。 
 
-* Outside the Microsoft Edge browser, users of *other browsers* on Windows PCs sometimes face inconsistent feature-sets and performance/battery-life across device types. Some browsers have had slower-progress to embrace new Windows capabilities like touch and ARM processors. As you know, we’ve recently started making contributions that provide these types of hardware support to Chromium-based browsers, and we believe that this approach can be generalized: we think we can help to accelerate the web and users’ experience of it by contributing new capabilities to Chromium open source for the benefit of all these browsers and users.
+* Microsoft Edgeブラウザーの外側で、Windows PC上の *他のブラウザー* を使用しているユーザーは、デバイスの種類によらず、機能セットとパフォーマンス/バッテリー寿命が一致しないことがあります。一部のブラウザーでは、タッチのような新しいWindows機能やARMプロセッサーを使用するための処理が遅くなっています。ご存じのように、私たちは最近、Chromiumベースのブラウザーにこれらのタイプのハードウェアサポートを提供するための貢献を開始しました。このアプローチは一般化することができると考えています：私たちは、これらのブラウザーとユーザーのすべて利益のために、Chromiumオープンソースに新しい機能を提供することで、ウェブとユーザー体験を促進するのに役立つと考えています。
 
-* *Developers* – as the web has grown in usage across an ever-widening array of device-types, the complexity and overhead involved in testing web sites has exploded. Since web developers—particularly those at small companies-- need to test so many different systems, it’s nearly impossible to ensure that interesting sites will work well across all device types and all browsers. We hope to simplify this matrix for web developers by aligning Microsoft Edge web-platform with other Chromium-browsers and to provide meaningful, aligned capabilities on Windows that can be used by any browser.
+* 開発者 - 常に拡大する数々のデバイスタイプ全体でウェブの利用が広がるにつれて、ウェブサイトのテストに伴う複雑さとオーバーヘッドが爆発的に増加しました。ウェブ開発者、特に中小企業の開発者は非常に多くの異なるシステムをテストする必要があるため、興味のあるサイトがすべてのデバイスタイプとすべてのブラウザーでうまく機能するように保証することはほとんど不可能です。Microsoft Edgeウェブプラットホームを他のChromiumブラウザーと連携させることで、ウェブ開発者向けのこのマトリックスを簡素化し、有意義で、あらゆるブラウザーで使用可能なWindows上のアライメントされた機能を提供したいと望みます。
 
-* *Corporate IT* - IT managers face the downstream-complexity of users with many different device types, using both new and old sites, on devices owned both personally and by the corporation. We see meaningful value in creating better web compatibility and an aligned web-platform across browsers for Corp IT, regardless of device platform.
+* *企業IT* - IT管理者は、新しいサイトと古いサイトの両方を使用して、個人的にも企業によっても所有されているデバイスで、さまざまな種類のデバイスを持つダウンストリームの複雑なユーザーに直面します。私たちは、デバイスプラットフォームにかかわらず、より良いウェブ互換性と、企業IT向けのブラウザー間で調整されたウェブプラットフォームを作成する際に有意義な価値を見出します。
 
-*What’s common across all these audiences is the two-sided benefit we believe we can bring them when we (a) engineer valuable new capabilities into a shared open-source project, for the benefit of multiple browsers, and (b) increasingly use that shared open-source ourselves in the browser we distribute at scale. We intend to do both of these.*
+*これらの読者全員に共通していることは、ユーザーにもたらすことができると考えられる双方向のメリットです。(a) 複数のブラウザーの利益のために、共有しているオープンソースプロジェクトに有益な新機能をエンジニアリングし、(b) 私たちが広範囲に配布しているブラウザーで共有されたオープンソース自身をますます利用するようになります。我々はこれらの両方を行うつもりです。*
 
-### Recent Investments in Web-focused Open Source
-Over the last year, we’ve started to engage in the Chromium and WebRTC open source projects (among other OSS areas more broadly at Microsoft), and our efforts have been ramping up as we consider a wider range of device-types. Some examples include…
+### ウェブにフォーカスを当てたオープンソースへの最近の投資
+昨年、ChromiumとWebRTCのオープンソースプロジェクト（他のOSS分野ではMicrosoftで広く普及しています）に参加し始めました。私たちの取り組みは、より広範なデバイスタイプを検討するにつれて増加しています。例としては…
 
-* **Porting Chromium to ARM64**: We’ve done significant work in collaboration with Google engineers to enable Chromium-based browsers to compile and run natively on Windows on ARM devices. Because of our engineering investment, Chromium-based browsers will soon be able to ship native implementations for ARM-based Windows PCs, which significantly improves their performance and battery life. This is a great example of us making investments in Chromium to move-forward the web experience across a range of browsers on these new types of PCs.
+* **ChromiumをARM64に移植する**：Chromiumベースのブラウザーが、ARMデバイス上のWindowsでネイティブにコンパイルして実行できるようにするために、Googleのエンジニアと協力して重要な作業を行ってきました。私たちのエンジニアリング投資のために、ChromiumベースのブラウザーはまもなくARMベースのWindows PC向けのネイティブ実装を出荷できるようになり、パフォーマンスとバッテリ寿命が大幅に向上します。これは、私たちがこれら新しいタイプのPC上のさまざまなブラウザーでウェブ体験を前進させるためにChromiumに投資する素晴らしい例です。
 
-* **Enabling Web RTC to work for Windows UWP apps**: For more than a year, we have been working on WebRTC for Universal Windows Platform (UWP). This offers developers a WebRTC solution for all our Windows 10 platforms, including desktop, Xbox, HoloLens/VR and IoT. Last week, we announced our agreement with Google to push the UWP fork of WebRTC Lib back to the WebRTC.org repo. 
+* **Web RTCをWindows UWPアプリケーションで使用できるようにする**：1年以上にわたり、Universal Windows Platform (UWP)向けのWebRTCに取り組んできました。これにより、デスクトップ、Xbox、HoloLens/VR、IoTを含む、Windows 10のすべてのプラットフォーム向けのWebRTCソリューションが開発者に提供されます。先週、私たちはWebRTCライブラリーのUWPフォークをWebRTC.orgリポジトリーに戻すためのGoogleとの合意を発表しました。 
 
-* **Improving ANGLE**: In the past, we have made improvements to ANGLE’s D3D11 backend and improve its performance. More recently, we collaborated with Intel and the ANGLE team on additional improvements to make ANGLE the official backend for WebGL in Microsoft Edge. 
+* **ANGLEの改善**：これまでに、ANGLEのD3D11バックエンドの改善と性能向上を行ってきました。最近では、IntelおよびANGLEチームと協力し、ANGLEをMicrosoft EdgeのWebGLの公式バックエンドにするための追加の改良を行っています。 
 
-We recognize that these are modest-but-still-meaningful examples of web-oriented open source contributions. Both have provided us with valuable perspective on how we can collaboratively use and contribute to Chromium in a healthy way. Across Microsoft our OSS expertise and focus has grown – and our web teams are excited to take these lessons and move the web experience for millions of people forward.
+私たちは、これらがウェブ指向のオープンソースへの貢献の中でも、まだまだ意味のある例であることを認識しています。両方とも、健全な方法で協力してChromiumをどのように使用し、貢献できるかについて貴重な視点を提供しています。Microsoft全体では、OSSの専門知識とフォーカスが向上しています。ウェブチームは、これらのレッスンを受け、何百万人もの人々のためにウェブ経験を推進することに興奮しています。
 
-## Microsoft Edge + open source: a new direction for Microsoft
-Getting down to brass tacks ... we have put this document together to be transparent to relevant OSS contributors and partners about our intent.
+## Microsoft Edge + オープンソース：Microsoftの新たな方向性
+本題に入りましょう――私たちは、この文書を関連するOSSの貢献者やパートナーに透明性を持たせるために、その意図についてまとめました。
 
-### Use of OSS in the Microsoft Edge Browser
-While we’ve been consumers of Chromium open source for shipping our Microsoft Edge mobile browser and for some components of Microsoft Edge desktop, we’ve made the decision to move much more of Microsoft Edge desktop to use Chromium open source, and to increase our contributions back to this community. 
+### Microsoft Edge BrowserでのOSSの利用
+私たちは、Microsoft Edgeモバイルブラウザーとを出荷するChromiumオープンソースの消費者であり、Microsoft Edgeデスクトップの一部のコンポーネントについては、Chromiumオープンソースを使用するためにMicrosoft Edgeデスクトップをはるかに移動させ、このコミュニティへの貢献を増やすことに決定しました。 
 
-The key aspects of this evolution in direction for Microsoft Edge are: 
+Microsoft Edge向けの方針におけるこの進化の主要な側面は次のとおりです： 
 
-1. *We will adopt Chromium as the web platform for Microsoft Edge desktop*. Our desire here is to align Microsoft Edge’s web platform both (a) with web standards and (b) with other Chromium-based browsers, for improved compatibility and a simpler test-matrix for developers.
+1. *Microsoft Edgeデスクトップ向けのウェブプラットフォームとしてChromiumを採用する予定です。*私たちの願望は、互換性を向上させて開発者向けのより簡単なテストマトリックスのために、Microsoft EdgeのWebプラットフォームを(a)ウェブ標準と(b)他のChromiumベースのブラウザーとの両方をそろえることです。
 
-2. *We will evolve the Microsoft Edge app architecture, enabling distribution to all supported versions of Windows including Windows 7 and Windows 8, as well as Windows 10. We will also bring Microsoft Edge to other desktop platforms, such as macOS*. Improving the web experience for end users (better compatibility) and developers (less fragmentation) requires a consistent web-platform as widely available as possible. To accomplish this, we will use Chromium’s cross-platform app-technology along with a change in our distribution model, so that the Microsoft Edge experience and web-platform become available across all supported operating systems.
+2. *Microsoft Edgeのアプリケーションアーキテクチャを進化させ、Windows 7やWindows 8、Windows 10を含むサポートされているすべてのバージョンのWindowsへの配布を可能にします。MacOSなどの他のデスクトッププラットフォームにもMicrosoft Edgeをもたらします。エンドユーザー（より良い互換性）と開発者（断片化の少ない）のウェブ体験を向上させるには、可能な限り広く利用できる一貫したウェブプラットフォームが必要です。これを実現するため、Chromiumのクロスプラットフォームアプリテクノロジーとディストリビューションモデルの変更を使用して、サポートされているすべてのオペレーティングシステムでMicrosoft Edge体験とウェブプラットフォームを利用できるようにします。
 
-3. *We will offer our Windows platform expertise to improve the experience of all Chromium-based browsers on Windows*. Our philosophy of greater participation in Chromium open source will embrace contribution of beneficial new tech, consistent with some of the work we described above. We recognize that making the web better on Windows is good for our customers, partners and our business – and we intend to actively contribute to that end. We welcome the opportunity to partner with the Chromium community in the areas of battery life, touch, accessibility, security, and other areas of mutual interest.
+3. *私たちは、Windows上のChromiumベースのブラウザーのすべての体験を向上させるために、Windowsプラットフォームの専門知識を提供します。Chromiumオープンソースへのより大きな参加の理念は、私たちが上で述べた作業のいくつかと一致して、有益な新技術の貢献を受け入れます。私たちは、Windows上でウェブをより良くすることが、顧客、パートナー、ビジネスにとって良いことであると認識しており、その目的に積極的に貢献するつもりです。バッテリーの寿命、接触性、アクセシビリティ、セキュリティなど、相互に関心のある分野でChromiumコミュニティと提携する機会を歓迎します。
 
-### Our contributions: Principles and expectations 
-A key goal in providing this document to the teams and people who are already immersed in Chromium OSS is to indicate how we plan to contribute, and to kick-start the engineering planning needed to bring valuable new tech into Chromium browsers.
+### 私たちの貢献：原則と期待
+Chromium OSSにすでに打ち込んでいるチームや人々にこの文書を提供することの重要な目標は、貢献する予定を示すことと、貴重な新技術をChromiumブラウザーにもたらすために必要なエンジニアリングのプランニングに弾みをつけることです。
 
-We're excited to engage more deeply with the broader Chromium project. This has been a heavily-weighed decision and one that we believe is the right next step. That said, we're taking that step in the spirit of learning. We know we have a lot to learn as we increase our use and contributions to Chromium, and we look forward to engaging and contributing back to the broader community in a collaborative way. We are looking forward to evolving the nature and scope of our involvement over time. 
+私たちは、より広範にChromiumプロジェクトに深く携わることに興奮しています。これは重く熟考した決定であり、正しい次のステップであると私たちは信じています。つまり、私たちは学習の精神の中でその一歩を踏み出しています。私たちが、Chromiumの使用と貢献を増やしながら多くのことを学ぶべきことは分かっています。協力的な方法で広範なコミュニティに参加し、貢献することを楽しみにしています。私たちは、時間の経過と共に私たちの関与の性質と範囲を発展させることを楽しみにしています。 
 
-### Our OSS principles for Microsoft Edge
-1. *We are making this decision for the long term*. We expect our engineers to learn and over time become experts in the Chromium project and grow into active and responsible members of the community. We are eager to increase our contributions to the Chromium project and will continue to maintain any contributions we make.
+### Microsoft EdgenのためのOSS原則
+1. *私たちはこの決定を長期にわたって行っています。*私たちのエンジニアは、学び、時間をかけてChromiumプロジェクトのエキスパートになり、コミュニティの積極的かつ責任あるメンバーに成長することが期待されます。私たちはChromiumプロジェクトへの貢献を増やすことを切望しており、引き続き貢献を続けていきます。
 
-2. *When seeking improvements in the web platform, our default position will be to contribute*. We are focused on delivering a world class browser with Microsoft Edge through its differentiated user experience features and connected services, but where new platform capabilities are concerned, we will seek a ‘rising tide that floats all boats’. We will get started with bug fixes and meaningful contributions in such areas as ARM64 support, accessibility, security, touch input and power enhancements on Windows.
+2. *ウェブプラットフォームの改善を模索しているとき、私たちのデフォルトの立場は貢献することです。*私たちは、差別化されたユーザー体験機能と接続されたサービスを通じて、Microsoft Edgeとともに世界に通用するブラウザーを提供することに注力していますが、新しいプラットフォーム機能については、「上げ潮はすべての船を持ち上げる(rising tide that floats all boats)」を追求します。私たちは、Windows上でのARM64サポート、アクセシビリティ、セキュリティ、タッチ入力、電源強化などの分野でのバグ修正と有意義な貢献から始めます。
 
-3. *We recognize and will respect the architecture requirements and engineering approach that are intrinsic in web open-source projects and have made Chromium successful*. There are many aspects that have governed Chromium OSS and other projects: multi-device support, multi-OS support, rigorous real-time engineering, etc. Although our company has historically had a focus on Windows PCs and we believe we can make contributions that improve browsers on Windows, we also understand that web OSS projects embrace a wide range of device-types, including Android, and that contributions must accommodate this device diversity. We will contribute in a way that is consistent with the architectural design that meets Chromium’s cross-platform and cross-device needs. 
+3. 私たちは、ウェブオープンソースプロジェクトに本質的なアーキテクチャー要件とエンジニアリングアプローチを認識し、尊重し、Chromiumを成功させました。*Chromium OSSとその他のプロジェクトを統制する側面は数多くあります：マルチデバイスサポート、マルチOSサポート、厳密なリアルタイムエンジニアリングなどです。当社は歴史的にWindows PCにフォーカスを当てており、私たちはWindows上のブラウザーを改善するために貢献できると信じていましたが、私たちはまた、ウェブOSSプロジェクトがAndroidを含む幅広い種類のデバイスを採用しており、その貢献がこのデバイスの多様性に対応しなければならないことも理解しています。私たちは、Chromiumのクロスプラットフォームおよびクロスデバイスのニーズを満たすアーキテクチャ設計と一貫した方法で貢献します。 
 
-4. *We believe the evolution of the open web is best served though the standards communities, and the open web benefits from open debate from a wide variety of perspectives*. We will remain deeply and vigorously engaged in the standards discussions in the context of the W3C, ECMA and the WHATWG where the perspectives of vendors developing competing browsers and the larger web community can be heard and considered. 
+4. *私たちはオープンウェブの進化が標準コミュニティを通じて最も効果的であると信じており、オープンウェブは幅広い視点からのオープンな議論から利益を得ています。*私たちは、W3C、ECMA、WHATWGのコンテキストで標準の議論に深く徹底的に引き続き取り組み、競合するブラウザーを開発するベンダーやより大きなウェブコミュニティの考え方を聞き、検討することができます。 
 
-### Contribution: Initial Areas of Focus
-As we’ve progressed our OSS work and considered the places where our engineering expertise can make the biggest difference for users and developers, we’ve put together an initial list of contribution “areas of focus”. 
+### 貢献：初期のフォーカスする分野
+私たちはOSSの作業を進め、エンジニアリングの専門知識がユーザーと開発者にとって最大の違いを生み出す場所を考慮して、最初の貢献「フォーカスする分野」のリストをまとめました。 
 
-We’d like to underscore that we view this list simply as the starting point—some areas where we can learn/practice together and create meaningful value in the Chromium codebase for all its consumers. 
+私たちは、このリストを単なる出発点として考えていることを強調したいと思います―すべての消費者のためにChromiumコードベースで共に学び/実践できかつ有意義な価値を生み出すことができる分野です。 
 
-* *ARM64* - Our plans here are to continue/finish the porting work that brings the Chromium codebase to support for ARM-64 and thus browsers can be shipped which support these devices natively. 
+* *ARM64* - ChromiumのコードベースでARM-64をサポートする移植作業を続行/終了する予定であるため、これらのデバイスをネイティブにサポートするブラウザーを出荷することができます。 
 
-* *Accessibility* - To serve the needs of all our customers, we intend to build upon the accessibility of the Chromium codebase by adding Microsoft UI Automation (UIA) interfaces to support Narrator and other assistive technologies on Windows, integrating with Windows Ease of Access settings such as high contrast and caption styling, improving controls accessibility, and supporting caret browsing.
+* *アクセシビリティ* - すべての顧客のニーズに応えるために、ナレーターやWindows上の他の支援技術をサポートするためのMicrosoft UI Automation (UIA) インターフェイスを追加することでChromiumコードベースのアクセシビリティを強化するつもりです。これには、ハイコントラストやキャプションスタイリングなどのWindows Ease of Accessの設定との統合、コントロールのアクセシビリティの向上、キャレットブラウジングのサポートなどが含まれます。
 
-* *PC-hardware evolution* for modern input types (e.g. touch) - We can help improve desktop touch, gesture recognition and scroll/panning smoothness, particularly on newer, more modern Windows devices.
+* モダンな入力タイプ（タッチなど）のための *PCハードウェアの進化* - 欲によりモダンなWindowsデバイスで、デスクトップタッチ、ジェスチャー認識、スクロール/パンのスムーズさの改善に役立ちます。
 
-* *Security* - It is, of course, of paramount importance to all browser vendors that web users are kept as safe and secure as possible. In support of this shared goal, we are looking forward to partnering closely with the Chromium Security team and contributing our experience with building secure software in general, and our expertise with the Windows platform, in particular. 
+* セキュリティ - もちろん、すべてのブラウザーベンダーにとって、ウェブユーザーはできるだけ安全でセキュアに保たれることが重要です。この共通の目標をサポートするため、Chromiumのセキュリティーチームと緊密に提携し、安全なソフトウェアを構築してきた経験やWindowsプラットフォームの専門知識を積極的に貢献することを楽しみにしています。 
 
-## What Happens Next
-This is a big step for Microsoft, for the Microsoft Edge team, and we recognize it will be a big step for the Chromium project as well. We are enthusiastic about the benefit we believe this will bring to the larger web community. We are eager to begin engaging with our counterparts at Google and the other contributors to the Chromium project, and in the Chromium project generally, on how we can move forward together on a common web platform. At the same time, we recognize the value of competition and intend to bring-to-life our best vision for a Microsoft Edge browser that builds on Chromium open source via differentiated user experience features and connected services.
+## 次は何が起こる
+これは、Microsoft Edgeチームにとって、Microsoftの大きなステップであり、Chromiumプロジェクトにとっても大きなステップになると認識しています。私たちはこれがより大きなウェブコミュニティにもたらすと信じている利益に熱心です。Googleや他のChromiumプロジェクトの貢献者で、Chromiumプロジェクトの一般で、共通のウェブプラットフォームでどのように協力し合うことができるのか、カウンターパートとの関わりを始めることを熱望しています。同時に、私たちは、競争の価値として認識し、差別化されたユーザー体験機能と接続されたサービスを通じてChromiumのオープンソースを基盤とするMicrosoft Edgeブラウザーの最良のビジョンを生み出すこと目指します。
 
-We already have positive working relationships with many Chromium contributors based on our work in the standards bodies and in prior shared engineering efforts. We look forward to building on those relationships and learning-as-we-go how we can best contribute to this implementation of the open web.
+私たちはすでに、標準化団体の仕事と以前に共有されたエンジニアリングの取り組みに基づいて、多くのChromiumの貢献者と積極的に協力しています。私たちは、これらの関係や学習を構築することを楽しみにしています。私たちがオープンなウェブのこの実装にどのように最も貢献できるのかを考えています。
 
-To provide a more specific sense of what actions we’ll take with and following this memo, here’s the short-list:
-1. We will start by contacting the engineering owners of various parts of the Chromium project to engage on how we can begin contributing in the areas listed above. This includes Google as well as other companies.
-2. We will inform other key partners about this evolution in our Microsoft Edge strategy: e.g., WHATWG, the W3C… as well as our OEM partners, high-interaction development partners and others.
-3. We’ll make a public announcement via blog post so that the external community of people interested will have a transparent view of our strategy change. 
-4. We’ll post this document to GitHub so any interested developer or web-community member can read about our plans directly.
+私たちがどのような行動をとり、このメモに従うかを具体的に理解するために、ここに短いリストがあります：
+1. まず、Chromiumプロジェクトのさまざまな部分のエンジニアリングオーナーに連絡し、上記の分野での貢献を開始する方法を説明します。これには、Googleだけでなく他の企業も含まれます。
+2. 私たちは、Microsoft Edge戦略でのこの進化について他の主要パートナーに伝えます：WHATWG、W3C…だけでなく、OEMパートナー、高度に同流のある開発パートナーなど。
+3. 興味のある人々の外部コミュニティが私たちの戦略変更を透過的に見ることができるように、ブログ投稿を通じて公表する予定です。
+4. この文書はGitHubに投稿しますので、関心のある開発者やウェブコミュニティーのメンバーは、私たちの計画について直接読むことができます。
 
-We invite your comments, advice, and feedback as we begin to engage with you on the Chromium project!
+Chromiumプロジェクトであなた関わりながら、コメント、アドバイス、フィードバックをお寄せください。
